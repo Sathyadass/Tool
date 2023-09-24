@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Live Time and Data Table</title>
+        
+        <style>
+            table {
+            border-collapse: collapse;
+            width: 90%;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 50px;
+            }
+            table,td {
+            border: 2px solid black;
+            padding: 10px;
+            text-align: center;
+            font-size: 25px;
+            }
+            th{
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            border: 2px solid black; 
+            background-color: rgb(208, 230, 11);
+            padding: 10px; 
+            }
+            tr:nth-child(3) {  
+            background-color: #cf5748;  
+            }
+            tr:nth-child(7) {  
+            background-color: #cf5748; 
+            }
+            tr:nth-child(12) {  
+            background-color:  #cf5748; 
+            }
+            tr:nth-child(16) {  
+            background-color:  #cf5748; 
+            }
+            tr:nth-child(19) {  
+            background-color:  #cf5748; 
+            }
+            tr:nth-child(25) {  
+            background-color:  #cf5748;
+            }
+            tr:nth-child(29) {  
+            background-color: #cf5748; 
+            }
+            tr:nth-child(33) {  
+            background-color: #cf5748;
+            }
+            tr:nth-child(35) {  
+            background-color:  #cf5748;
+            }
+            tr:nth-child(40) {  
+            background-color:  #cf5748;  
+            }
+            tr:nth-child(4),tr:nth-child(5),tr:nth-child(13), tr:nth-child(14), tr:nth-child(15), tr:nth-child(22), tr:nth-child(23), tr:nth-child(24), tr:nth-child(30),tr:nth-child(31), tr:nth-child(37), tr:nth-child(38) ,tr:nth-child(39)   {  
+            background-color: rgb(167, 229, 167);  
+            }
+            body{
+                background-color: rgb(157, 180, 198);
+            }   
+        </style>
+
+</head>
+
+<body>
+    <button type="button" style="font-weight: bold;font-size: 15px;"><a href="http://127.0.0.1:5500/demo.html" style="display: block;"><i class="fa fa-desktop" style="width: 60px;height: 50px; font-weight: bold;font-size: 50px;color: rgb(6, 6, 6);padding: 5px;"></i></a>Home</button>
+    <h1 style="text-align: center; font-weight: bold; font-size: 40px;color: rgb(160, 2, 73);">Historical Event logger</h1>       
+    <center><table>
+            <tr>
+                <th>S.No</th>
+                <th>ID no</th>
+                <th>Time</th>
+                <th>Message</th>
+                <th>Code</th>
+                <th>Event</th>
+                <th>Severity</th>
+            </tr>
+        </table></center>
+        
+    <script>
+        let rowIndex = 1; // Start with the second row (headers are in the first row)
+        const maxRows = 40; // Maximum number of rows
+        function updateTime() {
+            const currentTime = new Date();
+            const hours = currentTime.getHours().toString().padStart(2, '0');
+            const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+            const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+            const formattedTime = `${hours}:${minutes}:${seconds}`;
+            return formattedTime;
+        }
+            const messages = [
+        "GSC active",
+        "MSC active",
+        "MSC inactive",
+        "GSC inactive",
+        "LSC active",
+        "Over current fault",
+        "Over voltage fault",
+        "LSC inactive",
+        "Alarm activated",
+        "Inlet temperature high",
+        "Operating range reduction",
+        "Active power reduction",
+        "Reactive power reduction",
+        "Grid filter fault",
+        "External trigger",
+        "GSC active",
+        "MSC active",
+        "MSC inactive",
+        "GSC inactive",
+        "LSC active",
+        "Over current fault",
+        "Over voltage fault",
+        "LSC inactive",
+        "Alarm activated",
+        "Inlet temperature high",
+        "Operating range reduction",
+        "Active power reduction",
+        "Reactive power reduction",
+        "Grid filter fault",
+        "External trigger",
+        "Operating range reduction",
+        "Active power reduction",
+        "Reactive power reduction",
+        "Grid filter fault",
+        "External trigger",
+        "Grid filter fault",
+        "External trigger",
+        "Operating range reduction",
+        "Active power reduction",
+        "Reactive power reduction",
+        "Grid filter fault",
+        "External trigger"
+        // Add more messages as needed
+    ];
+    function updateData1() {
+    if (rowIndex <= Second_colmndata.length+50) {
+        return Second_colmndata[rowIndex - 1];
+    } 
+    else {
+        return "";
+    }
+}
+ const Second_colmndata = [
+7670231,
+7670230,
+7670229,
+7670228,
+7670227,
+7670226,
+7670225,
+7670224,
+7670223,
+7670222,
+7670221,
+7670220,
+7670219,
+7670218,
+7670217,
+7670216,
+7670215,
+7670214,
+7670213,
+7670212,
+7670211,
+7670210,
+7670209,
+7670208,
+7670207,
+7670206,
+7670205,
+7670204,
+7670203,
+7670202,
+7670201,
+7670200,
+7670199,
+7670198,
+7670197,
+7670196,
+7670195,
+7670194,
+7670193,
+7670192,
+7670191,
+7670190,
+7670189,
+7670188,
+7670187,
+7670186,
+7670185,
+7670184,
+7670183,
+7670182,
+7670181,
+7670180,
+7670179,
+7670178,
+7670177,
+7670176,
+7670175,
+7670174,
+7670173,
+7670172,
+7670171,
+7670170,
+7670169,
+7670168,
+7670167,
+7670166,
+7670165,
+7670164,
+7670163,
+7670162,
+7670161,
+7670160,
+7670159,
+7670158,
+7670157,
+7670156,
+7670155,
+7670154,
+7670153,
+7670152,
+7670151,
+7670150,
+7670149,
+7670148,
+7670147,
+7670146,
+7670145,
+7670144
+    ];
+
+function updateData() {
+    if (rowIndex <= messages.length+50) {
+        return messages[rowIndex - 1];
+    } else {
+        return "";
+    }
+}
+
+const Third_colmndata = [
+"0x3F03",
+"0x37A",
+"0x379",
+"0x37A",
+"0x3F03",
+"0x379",
+"0x3F03",
+"0x3F03",
+"0x3F03",
+"0x37A",
+"0x379",
+"0x37A",
+"0x37A",
+"0x379",
+"0x3F03",
+"0x37A",
+"0x3F03",
+"0x379",
+"0x37A",
+"0x379",
+"0x3F03",
+"0x3F03",
+"0x37A",
+"0x379",
+"0x37A",
+"0x3F03",
+"0x379",
+"0x3F03",
+"0x37A",
+"0x37A",
+"0x3F03",
+"0x379",
+"0x37A",
+"0x379",
+"0x3F03",
+"0x3F03",
+"0x3F03",
+"0x37A",
+"0x379",
+];
+function updateData2() {
+    if (rowIndex <= Third_colmndata.length+50) {
+        return Third_colmndata[rowIndex - 1];
+    } else {
+        return "";
+    }
+}
+
+const Fourth_colmndata = [
+"EVENT",
+"DEACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"EVENT",
+"DEACTIVATION",
+"EVENT",
+"EVENT",
+"EVENT",
+"EVENT",
+"DEACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"DEACTIVATION",
+"EVENT",
+"EVENT",
+"DEACTIVATION",
+"EVENT",
+"EVENT",
+"ACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"DEACTIVATION",
+"EVENT",
+"EVENT",
+"EVENT",
+"DEACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"EVENT",
+"DEACTIVATION",
+"EVENT",
+"DEACTIVATION",
+"EVENT",
+"ACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"DEACTIVATION",
+"EVENT",
+"EVENT",
+"EVENT",
+"DEACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"EVENT",
+"DEACTIVATION",
+"EVENT",
+"DEACTIVATION",
+"EVENT",
+"ACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"DEACTIVATION","EVENT",
+"EVENT",
+"EVENT",
+"DEACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"EVENT",
+"DEACTIVATION",
+"EVENT",
+"DEACTIVATION",
+"EVENT",
+"ACTIVATION",
+"ACTIVATION",
+"ACTIVATION",
+"DEACTIVATION"
+];
+function updateData3() {
+    if (rowIndex <= Fourth_colmndata.length+50) {
+        return Fourth_colmndata[rowIndex - 1];
+    } else {
+
+        return "";
+    }
+}
+
+const Fifth_colmndata = [
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"HIGH_HIGH",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"LOW_LOW",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"LOW_LOW",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH",
+"HIGH_HIGH"
+];
+function updateData4() { 
+if (rowIndex <= Fifth_colmndata.length+50) {
+    return Fifth_colmndata[rowIndex - 1];
+} 
+else {
+    return "";
+}
+}
+
+        function addRow() {
+            if (rowIndex <= maxRows) {
+                const table = document.querySelector('table');
+                const newRow = table.insertRow(rowIndex);
+
+                const cell1 = newRow.insertCell(0);
+                const cell2 = newRow.insertCell(1);
+                const cell3=newRow.insertCell(2);
+                const cell4=newRow.insertCell(3);
+                const cell5=newRow.insertCell(4);
+                const cell6 = newRow.insertCell(5);
+                const cell7 = newRow.insertCell(6);
+
+ 
+                cell1.textContent=rowIndex;
+                cell2.textContent=updateData1();
+                cell3.textContent = updateTime();
+                cell4.textContent=updateData();
+                cell5.textContent=updateData2();
+                cell6.textContent=updateData3();
+                cell7.textContent=updateData4();
+                rowIndex++;
+                if (rowIndex > maxRows) {
+                    clearInterval(intervalId); // Stop adding rows when the maximum is reached
+                }
+            }
+
+        }
+        // Update the time every second (1000 milliseconds)
+        const intervalId = setInterval(addRow, 1000);
+        // Initial row
+        addRow();
+    </script>
+   
+</body>
+</html>
